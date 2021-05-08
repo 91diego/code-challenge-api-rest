@@ -15,7 +15,6 @@ class AuthRepository
             $status = "error";
             $data = null;
             $token = JWTAuth::attempt(['email' => $request['email'], 'password' => $request['password']]);
-            dd($token);
             if ($token) {
                 $user = User::where('email', $request['email'])->get();
                 $code = 200;
