@@ -4,22 +4,20 @@ namespace App\Repositories;
 
 use Tymon\JWTAuth\Facades\JWTAuth;
 
-class UserRepository
+class LinksRepository
 {
-    public function getUserClaims()
+    public function extractHtml($request)
     {
         try {
             $code = 400;
             $status = "error";
             $data = null;
             $message = "An error has ocurred!";
-            $token = JWTAuth::getToken();
-            $payload = JWTAuth::decode($token);
-            if ($payload->get("email") && $payload->get("secret_word")) {
+            if (true) {
                 $code = 200;
                 $status = "success";
                 $message = "Token claims valid!";
-                $data = ["email" => $payload->get("email"), "secret_word" => $payload->get("secret_word")];
+                $data = $request;
             }
         } catch (\Exception $error) {
             $message = "An error has ocurred! Try it again later, please.";
