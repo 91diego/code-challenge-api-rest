@@ -1,0 +1,129 @@
+FORMAT: 1A
+HOST: http://127.0.0.1:8000/api
+
+# API Rest Challenge
+
+Challenge API is an code challenge api.
+
+## Auth Collection [/login]
+
+### Login [POST]
+
+Login method
+
++ Request (application/json)
+
+        [
+            {
+                "email": "demo@usuario.com",
+                "password": "pipjY7-guknaq-nancex"
+            }
+        ]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+                {
+                    "code": 200,
+                    "status": "success",
+                    "message": "Logged in succesfully!",
+                    "data": {
+                        "user": [
+                            {
+                                "name": "Diego Gonzalez",
+                                "email": "demo@usuario.com",
+                                "email_verified_at": "2021-05-09T05:21:11.000000Z",
+                                "created_at": "2021-05-09T05:21:11.000000Z",
+                                "updated_at": "2021-05-09T05:21:11.000000Z"
+                            }
+                        ],
+                        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMDU0MzI2OSwiZXhwIjoxNjIwNTQ2ODY5LCJuYmYiOjE2MjA1NDMyNjksImp0aSI6IkJXeWo2Q0doMzZ1aTl3OUUiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJlbWFpbCI6ImRlbW9AdXN1YXJpby5jb20iLCJzZWNyZXRfd29yZCI6bnVsbH0.3wA85068Tkk-nwcvaqCgqOIfRBllko_le06qqikRJYs"
+                    }
+                }
+    
++ Response 400 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+                {
+                    "code": 400,
+                    "status": "error",
+                    "message": "Unauthorized!",
+                    "data": null
+                }
+
+## User Collection [/me]
+
+### Login [GET]
+
+Get user method
+
++ Request (application/json)
+
+    + Headers
+
+            Bearer: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMDUwNzU3OSwiZXhwIjoxNjIwNTExMTc5LCJuYmYiOjE2MjA1MDc1NzksImp0aSI6IjloVGRURlBSeUludU9xbXgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJlbWFpbCI6ImRlbW9AdXN1YXJpby5jb20iLCJzZWNyZXRfd29yZCI6Im5vbWFkYSJ9.-lg4Xq5S_KKiMVtI12R0UIgbFNKwn5EKzf53PbsogP0
+
++ Response 200 (application/json)
+
+
+    + Body
+
+                {
+                    "code": 200,
+                    "status": "success",
+                    "message": "Token claims valid!",
+                    "data": {
+                        "email": "demo@usuario.com",
+                        "secret_word": "nomada"
+                    }
+                }
+    
++ Response 400 (application/json)
+
+    + Body
+
+                {
+                    "status": "Token is Invalid"
+                }
+
+
+## Url Collection [/get-links]
+
+### Get url Collection [GET]
+
+Get url elements
+
++ Request (application/json)
+
+    + Headers
+
+            Bearer: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYyMDUwNzU3OSwiZXhwIjoxNjIwNTExMTc5LCJuYmYiOjE2MjA1MDc1NzksImp0aSI6IjloVGRURlBSeUludU9xbXgiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJlbWFpbCI6ImRlbW9AdXN1YXJpby5jb20iLCJzZWNyZXRfd29yZCI6Im5vbWFkYSJ9.-lg4Xq5S_KKiMVtI12R0UIgbFNKwn5EKzf53PbsogP0
+
++ Response 200 (application/json)
+
+
+    + Body
+
+                {
+                    "code":200,
+                    "status":"success",
+                    "message":"XSLX Downloaded!"
+                }
+    
++ Response 400 (application/json)
+
+    + Body
+
+                {
+                    "status": "Token is Invalid"
+                }
