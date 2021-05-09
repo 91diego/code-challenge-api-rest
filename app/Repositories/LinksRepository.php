@@ -30,13 +30,20 @@ class LinksRepository
             $url->elements = json_encode($data);
             $url->save();
             $this->exportExcel();
+            $code = 200;
+            $status = "success";
+            $message = "XSLX Downloaded!";
         } catch (\Exception $error) {
             return response()->json([
                 "code" => 400,
                 "status" => "error",
-                "message" => "An error has ocurred! Try it again later, please. $error",
-                "data" => null,
+                "message" => "An error has ocurred! Try it again later, please.",
             ], 400);
         }
+        return response()->json([
+            "code" => $code,
+            "status" => $status,
+            "message" => $message,
+        ], $code);
     }
 }

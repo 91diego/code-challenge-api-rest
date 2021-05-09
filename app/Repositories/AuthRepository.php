@@ -20,7 +20,7 @@ class AuthRepository
                 $code = 200;
                 $status = "success";
                 $message = "Logged in succesfully!";
-                $data = [$user, $token];
+                $data = ["user" => $user, "token" => $token];
             }else {
                 $code = 400;
                 $status = "error";

@@ -12,7 +12,6 @@ class UserRepository
             $code = 400;
             $status = "error";
             $data = null;
-            $message = "An error has ocurred!";
             $token = JWTAuth::getToken();
             $payload = JWTAuth::decode($token);
             if ($payload->get("email") && $payload->get("secret_word")) {
